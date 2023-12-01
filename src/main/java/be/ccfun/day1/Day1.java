@@ -57,7 +57,6 @@ public class Day1 {
 			}
 		}
 		int x = Integer.parseInt(String.valueOf(digits.get(0)) + String.valueOf(digits.get(digits.size() - 1)));
-		System.out.println(x);
-		return Integer.parseInt(String.valueOf(digits.get(0)) + String.valueOf(digits.get(digits.size() - 1)));
+		return x;
 	}
 }
