@@ -12,10 +12,8 @@ public class Day1 {
 
 	public static void main(String[] args) throws IOException {
 		List<String> lines = Files.readAllLines(Path.of("src/main/resources/store/1"));
-		System.out.println(replaceWord("eightwo"));
 		int sum = lines.stream().map(Day1::replaceWord)
-				.peek(System.out::println)
-				.mapToInt(l -> getNumber(l))
+				.mapToInt(Day1::getNumber)
 				.sum();
 		System.out.println(sum);
 
