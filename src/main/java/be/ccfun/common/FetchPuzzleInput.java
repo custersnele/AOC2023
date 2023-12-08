@@ -5,7 +5,7 @@ import java.nio.file.Path;
 public class FetchPuzzleInput {
 
 	public static void main(String[] args) {
-		int day = 7;
+		int day = 8;
 		int year = 2023;
 		PuzzleInputFetcher pif = new PuzzleInputFetcher(Path.of("src/main/resources/store"),  Path.of("src/main/resources/sessiontoken"));
 		pif.getPuzzleInput(year, day);

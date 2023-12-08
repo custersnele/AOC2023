@@ -9,7 +9,7 @@ import java.util.List;
 
 public class Day7 {
 	public static void main(String[] args) throws IOException {
-		List<String> lines = Files.readAllLines(Path.of("src/main/resources/store/7johan"));
+		List<String> lines = Files.readAllLines(Path.of("src/main/resources/store/7"));
 		List<Hand> hands = new ArrayList<>();
 		for (String line : lines) {
 			String[] split = line.split(" ");
