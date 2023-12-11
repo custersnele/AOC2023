@@ -4,8 +4,8 @@ import java.util.Map;
 
 public class Galaxy {
 	private int number;
-	private int x;
-	private int y;
+	private long x;
+	private long y;
 
 	public Galaxy(int number, int x, int y) {
 		this.number = number;
@@ -17,7 +17,7 @@ public class Galaxy {
 		return number;
 	}
 
-	public int distance(Galaxy other) {
+	public long distance(Galaxy other) {
 		return Math.abs(other.x - x) + Math.abs(other.y - y);
 	}
 

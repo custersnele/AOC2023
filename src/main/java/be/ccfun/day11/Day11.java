@@ -24,10 +24,10 @@ public class Day11 {
 				}
 				int colSkip = adjacentEmptyCols(lines, x + 1);
 				x+= colSkip == 0? 1 : colSkip;
-				actualX += colSkip == 0? 1: colSkip * 2;
+				actualX += colSkip == 0? 1: colSkip * 1000000;
 			}
 			int rowSkip = adjacentEmptyRows(lines, y + 1);
-			actualY += rowSkip == 0? 1 : rowSkip * 2;
+			actualY += rowSkip == 0? 1 : rowSkip * 1000000;
 			y += rowSkip == 0? 1 : rowSkip;
 		}
 		for (Galaxy galaxy : galaxies) {
