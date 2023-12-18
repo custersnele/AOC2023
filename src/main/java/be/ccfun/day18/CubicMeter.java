@@ -18,11 +18,11 @@ public class CubicMeter {
 	}
 
 	public int getRow() {
-		return position.row();
+		return (int) position.row();
 	}
 
 	public int getCol() {
-		return position.col();
+		return (int) position.col();
 	}
 
 	public String getColor() {

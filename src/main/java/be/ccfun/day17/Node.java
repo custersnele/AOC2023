@@ -56,7 +56,7 @@ public class Node implements Comparable<Node> {
 	}
 
 	public void setVisitTag(String visitTag) {
-		this.visitTag = getRow() + "-" + getColumn() + "-" + visitTag;
+		this.visitTag = visitTag + "-" + getMovesInSameDirection();
 	}
 
 	public List<Step> getSteps() {
@@ -117,6 +117,10 @@ public class Node implements Comparable<Node> {
 
 	@Override
 	public int compareTo(Node o) {
+		// kies het langste path met de laagste stepcost
+		if (this.stepCost == o.stepCost) {
+			return o.steps.size() - steps.size();
+		}
 		return this.stepCost - o.stepCost;
 	}
 

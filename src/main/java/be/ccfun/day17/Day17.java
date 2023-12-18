@@ -12,7 +12,7 @@ import java.util.List;
 public class Day17 {
 
 	public static void main(String[] arg) throws IOException {
-		List<String> lines = Files.readAllLines(Path.of("src/main/resources/store/test"));
+		List<String> lines = Files.readAllLines(Path.of("src/main/resources/store/17"));
 		List<Node> nodes = new ArrayList<>();
 		int idx = 0;
 		for (int row = 0; row < lines.size(); row++) {
@@ -24,6 +24,5 @@ public class Day17 {
 		Node source = nodes.stream().filter(n -> n.getIdx()== 0).findFirst().get();
 		Node destination = nodes.stream().filter(n -> n.getIdx() == nodes.size() - 1).findFirst().get();
 		System.out.println(new Dijkstra().dijkstra(nodes, source, destination));
-
 	}
 }

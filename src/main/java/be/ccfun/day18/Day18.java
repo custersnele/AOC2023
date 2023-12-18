@@ -2,6 +2,7 @@ package be.ccfun.day18;
 
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -13,14 +14,24 @@ public class Day18 {
 		Position currentPosition = new Position(0, 0);
 
 		List<String> lines = Files.readAllLines(Path.of("src/main/resources/store/18"));
+		Polygon polygon = new Polygon();
+		polygon.addVertex(currentPosition);
+		long perimeter = 0;
 		for (String line : lines) {
 			String[] split = line.split(" ");
 			Direction direction = Direction.fromString(split[0]);
-			for (int i = 0; i < Integer.parseInt(split[1]); i++) {
+			int vertexLength = Integer.parseInt(split[1]);
+			perimeter += vertexLength;
+			for (int i = 0; i < vertexLength; i++) {
 				currentPosition = Direction.getDirection(currentPosition, direction);
 				edge.add(new CubicMeter(currentPosition, split[2]));
 			}
+			polygon.addVertex(currentPosition);
 		}
+		System.out.println(polygon.perimeter());
+		System.out.println("POLYGON AREA: ");
+		System.out.println(BigDecimal.valueOf(polygon.area()).toPlainString());
+		System.out.println(BigDecimal.valueOf(polygon.pickStheorem()).toPlainString());
 		List<Position> realEdge = edgeWithoutAdjacent(edge);
 		List<Position> flood = new ArrayList<>();
 		System.out.println(edge.size());

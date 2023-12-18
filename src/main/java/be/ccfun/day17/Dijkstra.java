@@ -27,14 +27,11 @@ public class Dijkstra {
                 System.out.println("SOLUTION");
                 System.out.println(currentNode.getSteps());
                 System.out.println(currentNode.getStepCost());
-                //return destination.getStepCost() - source.getCost();
+                return currentNode.getStepCost();
             }
 
             visited.add(currentNode.getVisitedTag());
-            System.out.println("CURRENT " + currentNode.getRow() + " " + currentNode.getColumn());
-            if (currentNode.getRow() == 0 && currentNode.getColumn() == 5) {
-                System.out.println("STOP");
-            }
+            System.out.println("CURRENT " + currentNode.getRow() + " " + currentNode.getColumn() + " " + currentNode.getStepCost());
 
             visitNeighbours(currentNode, nodes, priorityQueue);
         }
@@ -42,15 +39,12 @@ public class Dijkstra {
     }
 
         private void visitNeighbours(Node currentNode, List<Node> nodes, PriorityQueue<Node> priorityQueue)  {
-            int edgeDistance = -1;
-            int newDistance = -1;
-
             // process all neighbouring nodes of u
-            System.out.println("Neighbours");
+           // System.out.println("Neighbours");
             List<Node> neighbours = getNeighbours(nodes, currentNode);
             for (int i = 0; i < neighbours.size(); i++) {
                 Node neighbour = neighbours.get(i);
-                System.out.println(neighbour.getRow() + " " + neighbour.getColumn() + " " + neighbour.getCost() + " " + neighbour.getStepCost());
+              //  System.out.println(neighbour.getRow() + " " + neighbour.getColumn() + " " + neighbour.getCost() + " " + neighbour.getStepCost());
                 priorityQueue.add(neighbour);
             }
         }
@@ -92,7 +86,7 @@ public class Dijkstra {
                 e.setSteps(steps);
                 e.setVisited(new ArrayList<>(currentNode.getVisited()));
                 e.addVisited(currentNode.getIdx());
-                e.setVisitTag(currentNode.getIdx()+"-" + node.getIdx());
+                e.setVisitTag(currentNode.getIdx()+"-" + steps.get(steps.size() - 1));
             }
             neighbours.add(e);
         }
